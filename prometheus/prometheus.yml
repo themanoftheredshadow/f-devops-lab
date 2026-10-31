@@ -1,0 +1,11 @@
+global:
+  scrape_interval: 5s # Recoge métricas cada 5 segundos
+
+scrape_configs:
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+
+  - job_name: 'flask-app'
+    static_configs:
+      - targets: ['app:5000'] # Apunta al contenedor de nuestra web por su nombre de servicio

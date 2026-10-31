@@ -1,0 +1,23 @@
+services:
+  # Servicio 1: Nuestra Web
+  app:
+    build: ./app
+    container_name: contenedor-web
+    ports:
+      - "8080:5000"
+
+  # Servicio 2: Prometheus (Vigilante)
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: contenedor-prometheus
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+
+  # Servicio 3: Grafana (Dashboard visual)
+  grafana:
+    image: grafana/grafana:latest
+    container_name: contenedor-grafana
+    ports:
+      - "3000:3000"
