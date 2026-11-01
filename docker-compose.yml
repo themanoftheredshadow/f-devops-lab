@@ -14,9 +14,14 @@ services:
       - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
     ports:
       - "9090:9090"
+    depends_on:
+      - app
 
   # Servicio 3: Grafana (Dashboard visual)
   grafana:
+    environment:
+      - GF_SECURITY_ADMIN_USER=${GRAFANA_USER:-admin}
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD:-admin}
     image: grafana/grafana:latest
     container_name: contenedor-grafana
     ports:
