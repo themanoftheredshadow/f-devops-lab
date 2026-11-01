@@ -294,5 +294,3 @@ f-devops-lab/
 - Servir la app con Gunicorn detrás de Nginx.
 
 ---
-
-Hecho como proyecto de ASIR.
